@@ -4,13 +4,21 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env_list = dict()
+local_env = open(os.path.join(BASE_DIR,'.env'))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
+while True:
+    line = local_env.readline()
+    if not line:
+        break
+    line = line.replace('\n', '')
+    start = line.find('=')
+    key = line[:start]
+    value = line[start+1:]
+    env_list[key] = value
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-sp_&vjup6-t-z^8rj1bh5^rdm^80)+c5(dk#^xasc^l-p)(4nf'
-
+SECRET_KEY = env_list['SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -27,8 +35,16 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'beer',
-
+    'bootstrap4',
+    'chat',
+    'channels',
 ]
+
+from django.contrib.messages import constants as messages
+
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -61,6 +77,16 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Schatz.wsgi.application'
 
+
+ASGI_APPLICATION = 'Schatz.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 8000)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -115,4 +141,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATIC_DIR = os.path.dirname(BASE_DIR)
 STATICFILES_DIRS = [
     STATIC_DIR,
+    BASE_DIR / "static",
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
