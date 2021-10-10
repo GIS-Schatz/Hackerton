@@ -1,0 +1,11 @@
+
+requirements.txt file 생성 : pip freeze > requirements.txt
+requirements.txt file 사용 : pip install -r requirements.txt
+
+bootstrap4, pillow 설치
+pip install django django-bootstrap4 pillow
+
+pandas 설치 순서
+pip install numpy
+pip install pandas
+pip install django-pandas
