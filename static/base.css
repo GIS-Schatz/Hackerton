@@ -1,0 +1,97 @@
+.Home_header_logo{
+    margin: 2rem 0;
+    font-family: 'Otomanopee One', sans-serif;
+}
+
+.Home_header_button{
+    margin-bottom: 2rem;
+
+}
+
+.Home_footer_logo{
+    margin-bottom: 2rem;
+}
+
+.Home_footer_button{
+    margin: 1.5rem 0; font-family: 'Otomanopee One', sans-serif;
+}
+
+.mw-500{
+    max-width: 500px;
+    margin: 1rem 1.5rem;
+
+}
+
+.profile_image{
+    width: 12rem;
+    height: 12rem;
+    border-radius: 20rem;
+    object-fit: cover;
+}
+
+.NNS_B {
+    font-family: 'NanumSquareB', cursive;
+}
+
+.round_button {
+    color: black;
+    text-decoration: none;
+    box-shadow: 0 0 3px black;
+    border-radius: 20rem;
+    padding: 0.3rem;
+}
+
+.round_button:hover {
+    color: lightcoral;
+}
+
+.article_image{
+    border-radius: 2rem;
+    width: 70%;
+    box-shadow: 0 0 1rem gray;
+}
+
+.article_content{
+    font-size: 1.1rem;
+    text-align: left;
+    margin: 2rem 0;
+}
+
+.comment_box{
+    border: solid;
+    border-color: #686262;
+    text-align: left;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    font-size: 1.1rem;"
+}
+
+@media screen and (max-width: 500px) {
+    html {
+        /*default font-size = 16px*/
+        font-size: 13px;
+    }
+}
+
+/*앵커태그 꾸며줌*/
+a{
+    text-decoration: none;
+    color: black;
+    /*하트와 숫자 위아래 정렬=>디테일가서*/
+
+}
+
+/*하트 위로 커서 올렸을 때 파란색으로 변하는거 수정*/
+
+a:hover{
+    color: black;
+}
+
+
+
+
+
+
+
+
