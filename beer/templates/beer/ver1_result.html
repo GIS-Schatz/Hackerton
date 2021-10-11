@@ -1,6 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
 <!--    <link rel= "stylesheet" type="text/css" href="{% static 'css/ver1_result.css' %}">-->
@@ -17,12 +19,19 @@
         h3 { text-align: center; }
     </style>
 </head>
+
+
 <body>
 
 <div style="background-color:#0d47a1;">
-    <h1>첫 번째 추천 맥주는 {{ result.0 }} 입니다.</h1>
+        <h1>첫 번째 추천 맥주는 {{ result.0 }} 입니다.</h1>
 </div>
-<img src="static/beer_img/{{ result.0 }}.jpg" alt="사진은 수집중입니다😢">
+
+        <span>
+            <a href="{%  url 'beer:index' %}" style="color:black" class="a">
+                <img src="static/beer_img/{{ result.0 }}.jpg" alt="사진은 수집중입니다😢">
+            </a>
+        </span>
 
 <h2>추천 맥주 유형 </h2>
 <h3>{{ category.0 }}<h3>

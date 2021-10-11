@@ -1,6 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
@@ -36,12 +38,20 @@
         }
     </style>
 </head>
+
+
 <body>
 <div style="background-color:#0d47a1;">
-    <h1>좋아하는 맥주와 중요시 하는 취향을 선택해주세요.</h1>
+        <h1>좋아하는 맥주와 중요시 하는 취향을 선택해주세요.</h1>
 </div>
+
     <div id = 'contents' style="text-align:center;">
-        <img id="img1" src="static/img/selectbeer002.jpg">
+        <span>
+            <a href="{%  url 'beer:index' %}" style="color:black" class="a">
+                <img id="img1" src="static/img/selectbeer002.jpg">
+            </a>
+        </span>
+
         <div>
             <form method="POST">
                 <br>
@@ -66,4 +76,5 @@
         </div>
     </div>
 </body>
+
 </html>

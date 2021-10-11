@@ -1,6 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css" integrity="sha384-6pzBo3FDv/PJ8r2KRkGHifhEocL+1X2rVCTTkUfGk7/0pbek5mMa1upzvWbrUbOZ" crossorigin="anonymous">
@@ -38,17 +40,23 @@
         }
     </style>
 </head>
+
+
 <body>
 
 <div style="background-color:#0d47a1;">
-    <h1>좋아하는 맥주와 평점을 선택해주세요.</h1>
+        <h1>좋아하는 맥주와 평점을 선택해주세요.</h1>
 </div>
 
 <div style="text-align:center;">
     아이디 : <input type="text" name="name" text-align="center"><br><br>
 </div>
 
-<img src="static/img/selectbeer001.jpg" alt="추천맥주">
+        <span>
+            <a href="{%  url 'beer:index' %}" style="color:black" class="a">
+                <img src="static/img/selectbeer001.jpg" alt="추천맥주">
+            </a>
+        </span>
 <div id="user">
     <div style="text-align:center; margin:10px;">
     <form method="POST">
@@ -144,4 +152,6 @@
 </div>
 </div>
 </body>
+
+
 </html>
