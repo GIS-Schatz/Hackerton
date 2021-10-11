@@ -96,12 +96,12 @@ def index(request):
 
 
 def ver1(request):
-    beer_list = pd.read_csv('맥주이름.csv', encoding='utf-8', index_col=0)
-    beer_year = pd.read_csv('맥주_연도별평점.csv', encoding='utf-8', index_col=0)
-    ratings = pd.read_csv('정제된데이터.csv', encoding='utf-8', index_col=0)
-    cluster_3 = pd.read_csv('대표군집클러스터링.csv', encoding='utf-8', index_col=0)
-    cluster_all = pd.read_csv('전체맥주클러스터링.csv', encoding='utf-8', index_col=0)
-    beer_data = pd.read_csv('맥주_cbf_data.csv', encoding='utf-8', index_col=0)
+    beer_list = pd.read_csv('data/맥주이름.csv', encoding='utf-8', index_col=0)
+    beer_year = pd.read_csv('data/맥주_연도별평점.csv', encoding='utf-8', index_col=0)
+    ratings = pd.read_csv('data/정제된데이터.csv', encoding='utf-8', index_col=0)
+    cluster_3 = pd.read_csv('data/대표군집클러스터링.csv', encoding='utf-8', index_col=0)
+    cluster_all = pd.read_csv('data/전체맥주클러스터링.csv', encoding='utf-8', index_col=0)
+    beer_data = pd.read_csv('data/맥주_cbf_data.csv', encoding='utf-8', index_col=0)
     beer_list = beer_list['맥주이름']
     cluster_3 = cluster_3.values
 
@@ -171,12 +171,12 @@ def ver1(request):
 
 
 def ver2(request):
-    beer_list = pd.read_csv('맥주이름.csv', encoding='utf-8', index_col=0)
-    beer_year = pd.read_csv('맥주_연도별평점.csv', encoding='utf-8', index_col=0)
-    ratings = pd.read_csv('정제된데이터.csv', encoding='utf-8', index_col=0)
-    cluster_3 = pd.read_csv('대표군집클러스터링.csv', encoding='utf-8', index_col=0)
-    cluster_all = pd.read_csv('전체맥주클러스터링.csv', encoding='utf-8', index_col=0)
-    beer_data = pd.read_csv('맥주_cbf_data.csv', encoding='utf-8', index_col=0)
+    beer_list = pd.read_csv('data/맥주이름.csv', encoding='utf-8', index_col=0)
+    beer_year = pd.read_csv('data/맥주_연도별평점.csv', encoding='utf-8', index_col=0)
+    ratings = pd.read_csv('data/정제된데이터.csv', encoding='utf-8', index_col=0)
+    cluster_3 = pd.read_csv('data/대표군집클러스터링.csv', encoding='utf-8', index_col=0)
+    cluster_all = pd.read_csv('data/전체맥주클러스터링.csv', encoding='utf-8', index_col=0)
+    beer_data = pd.read_csv('data/맥주_cbf_data.csv', encoding='utf-8', index_col=0)
     beer_list = beer_list['맥주이름']
     cluster_3 = cluster_3.values
 

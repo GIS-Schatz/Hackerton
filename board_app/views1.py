@@ -30,16 +30,3 @@ def detail(request, id):
         raise Http404("Does not exist!")
     return render(request, 'detail.html', {'board': board})
 
-
-def update(request, id):
-    board = Board.objects.get(pk=id)
-
-    if request.method == "POST":
-        # board.author = request.POST['author']
-        board.title = request.POST['title']
-        board.content = request.POST['content']
-        board.save()
-        return HttpResponseRedirect(reverse('board_app:index'))
-    else:
-        return render(request, 'update.html')
-
