@@ -4,5 +4,6 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Django-Board-Example" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/HaruBoard" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/djangobook" vcs="Git" />
   </component>
 </project>
