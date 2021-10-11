@@ -1,4 +1,7 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
 {% load static %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +27,8 @@
 <body>
 
 <div style="background-color:#0d47a1;">
-        <h1>첫 번째 추천 맥주는 {{ result.0 }} 입니다.</h1>
+    <h1>첫 번째 추천 맥주는 {{ result.0 }} 입니다.</h1>
+    <h3>사진을 클릭하면 홈페이지로 이동합니다</h3>
 </div>
 
         <span>
@@ -120,8 +124,13 @@ Plotly.newPlot("myDiv", data, layout)
 
 <div style="background-color:#0d47a1;">
     <h1>두 번째 추천 맥주는 {{ result.1 }} 입니다.</h1>
+    <h3>사진을 클릭하면 홈페이지로 이동합니다</h3>
 </div>
-<img src="static/beer_img/{{ result.1 }}.jpg" alt="사진은 수집중입니다😢">
+    <span>
+        <a href="{%  url 'beer:index' %}" style="color:black" class="a">
+            <img src="static/beer_img/{{ result.1 }}.jpg" alt="사진은 수집중입니다😢">
+        </a>
+    </span>
 
 <h2>추천 맥주 유형 </h2>
 <h3>{{ category.1 }}<h3>
@@ -212,8 +221,15 @@ Plotly.newPlot("myDiv2", data, layout)
 
 <div style="background-color:#0d47a1;">
     <h1>세 번째 추천 맥주는 {{ result.2 }} 입니다.</h1>
+    <h3>사진을 클릭하면 홈페이지로 이동합니다</h3>
 </div>
-<img src="static/beer_img/{{ result.2 }}.jpg" alt="사진은 수집중입니다😢">
+
+    <span>
+        <a href="{%  url 'beer:index' %}" style="color:black" class="a">
+            <img src="static/beer_img/{{ result.2 }}.jpg" alt="사진은 수집중입니다😢">
+        </a>
+    </span>
+
 <h2>추천 맥주 유형 </h2>
 <h3>{{ category.2 }}<h3>
 <h2>어울리는 요리</h2>
@@ -301,3 +317,4 @@ Plotly.newPlot("myDiv3", data, layout)
 </script>
 </body>
 </html>
+{% endblock %}

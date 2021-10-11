@@ -29,3 +29,4 @@ def detail(request, id):
     except Board.DoesNotExist:
         raise Http404("Does not exist!")
     return render(request, 'detail.html', {'board': board})
+

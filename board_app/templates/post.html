@@ -19,8 +19,11 @@
         </div>
     </div>
 </header>
+            <div style="text-align: center">
+                <h1> 익명게시판이기 때문에 수정 및 삭제는 불가능 합니다</h1>
+            </div>
 <div class="container">
-    <form action="/post" method="post">
+    <form action="post" method="post">
         {% csrf_token %}
         <div class="form-group row">
             <label for="inputTitle" class="col-sm-2 col-form-label"><strong>제목</strong></label>
