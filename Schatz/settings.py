@@ -5,7 +5,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env_list = dict()
-local_env = open(os.path.join(BASE_DIR,'.env'))
+local_env = open(os.path.join(BASE_DIR, '.env'))
 
 while True:
     line = local_env.readline()
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'bootstrap4',
     'chat',
     'channels',
+    'board_app',
 ]
 
 from django.contrib.messages import constants as messages
