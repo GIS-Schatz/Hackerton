@@ -8,8 +8,6 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics import mean_squared_error
 
 # 우리가 예측한 평점과 실제 평점간의 차이를 MSE로 계산
-
-
 def get_mse(pred, actual):
     # 평점이 있는 실제 영화만 추출
     pred = pred[actual.nonzero()].flatten()
@@ -35,60 +33,62 @@ def predict_rating_topsim(ratings_arr, item_sim_arr, n=20):
     return pred
 
 
-# 사용자가 안 먹어본 맥주를 추천하자.
-def get_not_tried_beer(ratings_matrix, userId):
-    # userId로 입력받은 사용자의 모든 맥주 정보를 추출해 Series로 반환
-    # 반환된 user_rating은 영화명(title)을 인덱스로 가지는 Series 객체
-    user_rating = ratings_matrix.loc[userId, :]
+# 사용자가 먹어본 맥주 제외
+def user_not_tried_beer(user_item_matrix, userid):
+    # ID로 입력 받은 사용자의 맥주 정보를 추출해 Series로 변환
+    # 반환된 user_rating는 beer('맥주이름')을 인덱스로 가지는 Series객체?
+    user_rating = user_item_matrix.loc[userid, :]
 
-    # user_rating이 0보다 크면 기존에 관란함 영화.
-    # 대상 인덱스를 추출해 list 객체로 만듦
+    # user_rating이 0보다 크면 기존에 마신 맥주
+    # 0보다큰 인덱스를 추출해 list객체로 만듦
     tried = user_rating[user_rating > 0].index.tolist()
 
-    # 모든 맥주명을 list 객체로 만듦
-    beer_list = ratings_matrix.columns.tolist()
+    # 모든 맥주명을 list객체로
+    beer_list = user_item_matrix.columns.tolist()
 
-    # list comprehension으로 tried에 해당하는 영화는 beer_list에서 제외
+    # tried에 해당하는 맥주는 beer_list에서 제외
     not_tried = [beer for beer in beer_list if beer not in tried]
 
     return not_tried
 
 
-# 예측 평점 DataFrame에서 사용자 id 인덱스와 not_tried로 들어온 맥주명 추출 후
-# 가장 예측 평점이 높은 순으로 정렬
-def recomm_beer_by_userid(pred_df, userId, not_tried, top_n):
-    recomm_beer = pred_df.loc[userId, not_tried].sort_values(ascending=False)[:top_n]
-    return recomm_beer
+#예측 평점 DataFrame에서 ID인덱스와 not_tried로 들어온 맥주명 추출 후
+#가장 예측 평점이 높은 순으로 정렬
+
+def recommand_beer_by_id(pred_df, userid, not_tried, top_n):
+    recommand_beer = pred_df.loc[userid, not_tried].sort_values(ascending=False)[:top_n]
+    return recommand_beer
 
 
 # 평점, Aroma, Flavor, Mouthfeel 중 피처 선택 후 유사도 계산
 def recomm_feature(df, col):
     feature = col
-    ratings = df[['아이디','맥주', feature]]
+    ratings = df[['평점', 'ID', '맥주이름']]
 
     # 피벗 테이블을 이용해 유저-아이디 매트릭스 구성
-    ratings_matrix = ratings.pivot_table(feature, index='아이디', columns='맥주')
-    ratings_matrix.head(3)
-    # fillna함수를 이용해 Nan처리
-    ratings_matrix = ratings_matrix.fillna(0)
+    user_item_matrix = ratings.pivot_table('평점', index='ID', columns='맥주이름')
+
+    # nan -> 0으로 채움
+    user_item_matrix = user_item_matrix.fillna(0)
 
     # 유사도 계산을 위해 트랜스포즈
-    ratings_matrix_T = ratings_matrix.transpose()
+    user_item_matrix_T = user_item_matrix.T
 
-    # 아이템-유저 매트릭스로부터 코사인 유사도 구하기
-    item_sim = cosine_similarity(ratings_matrix_T, ratings_matrix_T)
+    # 아이템 - 유저 매트릭스로부터 코사인 유사도 구하기
+    item_user_cos_sim = cosine_similarity(user_item_matrix_T, user_item_matrix_T)
 
-    # cosine_similarity()로 반환된 넘파이 행렬에 영화명을 매핑해 DataFrame으로 변환
-    item_sim_df = pd.DataFrame(data=item_sim, index=ratings_matrix.columns,
-                              columns=ratings_matrix.columns)
+    # cosine_similarity()로 반환된 넘파이 행렬에 맥주이름을 넣어서 (인덱스와 컬럼에) DataFrame로 변환
+    item_user_cos_sim_df = pd.DataFrame(data=item_user_cos_sim,
+                                        index=user_item_matrix.columns,
+                                        columns=user_item_matrix.columns)
 
-    return item_sim_df
+    return item_user_cos_sim_df
 
 
 # 해당 맥주와 유사한 유사도 5개 추천
-def recomm_beer(item_sim_df, beer_name):
+def recomm_beer(item_user_cos_sim_df, beer_name):
     # 해당 맥주와 유사도가 높은 맥주 5개만 추천
-    return item_sim_df[beer_name].sort_values(ascending=False)[1:4]
+    return item_user_cos_sim_df[beer_name].sort_values(ascending=False)[1:4]
 
 
 def index(request):
@@ -102,7 +102,7 @@ def ver1(request):
     cluster_3 = pd.read_csv('대표군집클러스터링.csv', encoding='utf-8', index_col=0)
     cluster_all = pd.read_csv('전체맥주클러스터링.csv', encoding='utf-8', index_col=0)
     beer_data = pd.read_csv('맥주_cbf_data.csv', encoding='utf-8', index_col=0)
-    beer_list = beer_list['맥주']
+    beer_list = beer_list['맥주이름']
     cluster_3 = cluster_3.values
 
     if request.method == 'POST':
@@ -127,7 +127,7 @@ def ver1(request):
         category = []
         food = []
         for i in range(3):
-            target = cluster_all[cluster_all['맥주'] == result[i]]
+            target = cluster_all[cluster_all['맥주이름'] == result[i]]
             target = target[['Aroma', 'Appearance', 'Flavor', 'Mouthfeel', 'Overall']]
             target = target.values[0]
             tmp_cluster.append(target)
@@ -142,7 +142,7 @@ def ver1(request):
         tmp_year = []
         tmp_ratings = []
         for i in range(3):
-            target = beer_year[beer_year['맥주'] == result[i]]
+            target = beer_year[beer_year['맥주이름'] == result[i]]
             target_year = target['년'].tolist()
             target_rating = target['평점'].tolist()
             tmp_year.append(target_year)
@@ -177,7 +177,7 @@ def ver2(request):
     cluster_3 = pd.read_csv('대표군집클러스터링.csv', encoding='utf-8', index_col=0)
     cluster_all = pd.read_csv('전체맥주클러스터링.csv', encoding='utf-8', index_col=0)
     beer_data = pd.read_csv('맥주_cbf_data.csv', encoding='utf-8', index_col=0)
-    beer_list = beer_list['맥주']
+    beer_list = beer_list['맥주이름']
     cluster_3 = cluster_3.values
 
     if request.method == 'POST':
@@ -193,39 +193,45 @@ def ver2(request):
             tmp.append(name)
             tmp.append(beer[i])
             tmp.append(float(rating[i]))
-            tmp = pd.DataFrame(data=[tmp], columns=['아이디','맥주','평점'])
+            tmp = pd.DataFrame(data=[tmp], columns=['ID','맥주이름','평점'])
             ratings = pd.concat([ratings, tmp])
 
-        uname = name
-        ratings_matrix = ratings.pivot_table('평점', index='아이디', columns='맥주')
-        ratings_matrix = ratings_matrix.fillna(0)
-        ratings_matrix_T = ratings_matrix.transpose()
+        username = name
+        # 피벗 테이블을 이용해 유저-아이디 매트릭스 구성
+        user_item_matrix = ratings.pivot_table('평점', index='ID', columns='맥주이름')
+        # nan -> 0으로 채움
+        user_item_matrix = user_item_matrix.fillna(0)
+        # user_item_matrix -> Collaborating Filtering(협업필터링) -> item_user_matrix로 변환
+        user_item_matrix_T = user_item_matrix.T
 
-        item_sim = cosine_similarity(ratings_matrix_T, ratings_matrix_T)
-        item_sim_df = pd.DataFrame(data=item_sim, index=ratings_matrix.columns,
-                                   columns=ratings_matrix.columns)
+        # 아이템 - 유저 매트릭스로부터 코사인 유사도 구하기
+        item_user_cos_sim = cosine_similarity(user_item_matrix_T, user_item_matrix_T)
+        # cosine_similarity()로 반환된 넘파이 행렬에 맥주이름을 넣어서 (인덱스와 컬럼에) DataFrame로 변환
+        item_user_cos_sim_df = pd.DataFrame(data=item_user_cos_sim,
+                                            index=user_item_matrix.columns,
+                                            columns=user_item_matrix.columns)
 
-        # top_n과 비슷한 유저들만 추천에 사용
-        ratings_pred = predict_rating_topsim(ratings_matrix.values, item_sim_df.values, n=5)
+        # top_n과 비슷한 맥주만 추천에 사용
+        ratings_pred = predict_rating_topsim(user_item_matrix.values, item_user_cos_sim_df.values, n=5)   # 계산된 예측 평점 데이터는 DataFrame으로 재생성
         # 계산된 예측 평점 데이터는 DataFrame으로 재생성
-        ratings_pred_matrix = pd.DataFrame(data=ratings_pred, index=ratings_matrix.index,
-                                           columns=ratings_matrix.columns)
-
+        ratings_pred_matrix = pd.DataFrame(data=ratings_pred,
+                                           index=user_item_matrix.index,
+                                           columns=user_item_matrix.columns)
         # 유저가 먹지 않은 맥주이름 추출
-        not_tried = get_not_tried_beer(ratings_matrix, uname)
+        not_tried = user_not_tried_beer(user_item_matrix, username)
         # 아이템 기반의 최근접 이웃 CF로 맥주 추천
-        recomm_beer = recomm_beer_by_userid(ratings_pred_matrix, uname, not_tried, top_n=3)
-        recomm_beer = pd.DataFrame(data=recomm_beer.values, index=recomm_beer.index,
-                                   columns=['예측평점'])
+        recommand_beer = recommand_beer_by_id(ratings_pred_matrix, username, not_tried, top_n=3)
+        recommand_beer = pd.DataFrame(data=recommand_beer.values, index=recommand_beer.index,
+                                      columns=['예측평점'])
         # 추천 결과로 나온 맥주이름만 추출
-        result = recomm_beer.index.tolist()
+        result = recommand_beer.index.tolist()
 
         # 클러스터링 결과
         tmp_cluster = []
         category = []
         food = []
         for i in range(3):
-            target = cluster_all[cluster_all['맥주'] == result[i]]
+            target = cluster_all[cluster_all['맥주이름'] == result[i]]
             target = target[['Aroma', 'Appearance', 'Flavor', 'Mouthfeel', 'Overall']]
             target = target.values[0]
             tmp_cluster.append(target)
@@ -240,7 +246,7 @@ def ver2(request):
         tmp_year = []
         tmp_ratings = []
         for i in range(3):
-            target = beer_year[beer_year['맥주'] == result[i]]
+            target = beer_year[beer_year['맥주이름'] == result[i]]
             target_year = target['년'].tolist()
             target_rating = target['평점'].tolist()
             tmp_year.append(target_year)
