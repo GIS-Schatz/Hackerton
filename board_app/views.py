@@ -16,7 +16,7 @@ def post(request):
         content = request.POST['content']
         board = Board(author=author, title=title, content=content)
         board.save()
-        return HttpResponseRedirect(reverse('index'))
+        return HttpResponseRedirect(reverse('board_app:index'))
     else:
         return render(request, 'post.html')
 
