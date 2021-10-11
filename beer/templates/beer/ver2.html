@@ -1,4 +1,4 @@
-{% extends 'base1.html' %}
+{% extends 'base.html' %}
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
@@ -49,18 +49,15 @@
 
 <div style="background-color:#0d47a1;">
     <h1>좋아하는 맥주와 평점을 선택해주세요.</h1>
-    <h3 style="text-align: center">사진을 클릭하면 홈페이지로 이동합니다</h3>
 </div>
 
 <div style="text-align:center;">
     아이디 : <input type="text" name="name" text-align="center"><br><br>
 </div>
 
-        <span>
-            <a href="{%  url 'beer:index' %}" style="color:black" class="a">
+
                 <img src="static/img/selectbeer001.jpg" alt="추천맥주">
-            </a>
-        </span>
+
 <div id="user">
     <div style="text-align:center; margin:10px;">
     <form method="POST">
