@@ -9,3 +9,9 @@ pandas 설치 순서
 pip install numpy
 pip install pandas
 pip install django-pandas
+
+# 점프투 장고 다운 받고
+pip install pybo
+pip install markdown
+python manage.py makemigrations
+python manage.py migrate

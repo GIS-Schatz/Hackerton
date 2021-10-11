@@ -10,12 +10,7 @@
             <a href="ver2">내 평점이 반영된 맥주 추천</a>
         </span>
         <span class="mx-2">
-            <a href="{% url 'board_app:index' %}">게시판</a>
-        </span>
-        <span class="mx-2">
-{#            <a href="{% url 'subscribeapp:list' %}">#}
-                공지사항
-{#            </a>#}
+            <a href="index">게시판</a>
         </span>
         <span class="mx-2">
 {#            <a href="{% url 'subscribeapp:list' %}">#}
@@ -27,21 +22,6 @@
                 오시는길
 {#            </a>#}
         </span>
-{#    로그인 여부#}
-{#        {% if not user.is_authenticated %}#}
-{#        <span class="mx-2">#}
-{#            <a href="{% url 'accountapp:login' %}"> Login </a>#}
-{#        </span>#}
-{#        <span class="mx-2">#}
-{#            <a href="{% url 'accountapp:create' %}"> Sign up </a>#}
-{#        </span>#}
-{#              {% else %}#}
-{#                 <span class="mx-2">#}
-{#                      <a href="{% url 'accountapp:detail' pk=user.pk %}">  Mypage</a>#}
-{#                 </span>#}
-{#                 <span class="mx-2">#}
-{#                      <a href="{% url 'accountapp:logout' %}">  Logout </a>#}
-{#                 </span>#}
-{#        {% endif %}#}
+
     </div>
 </div>
