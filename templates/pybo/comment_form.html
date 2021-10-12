@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% load bootstrap4 %}
+{% load pybo_filter %}
 {% block content %}
 <div class="container my-3">
     <h5 class="border-bottom pb-2">댓글등록하기</h5>
@@ -11,7 +12,9 @@
             <textarea class="form-control"name="content" id="content"
                       rows="3">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">저장하기</button>
+    <div class="d-grid gap-2">
+        <button class="my-3 btn btn-outline-secondary" type="submit">저장하기</button>
+    </div>
     </form>
 </div>
 {% endblock %}

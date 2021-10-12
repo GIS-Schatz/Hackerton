@@ -27,7 +27,9 @@
             <textarea class="form-control" name="content"
                       id="content" rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">저장하기</button>
+    <div class="d-grid gap-2">
+        <button type="submit" class="my-3 btn btn-outline-secondary">저장하기</button>
+    </div>
     </form>
 </div>
 {% endblock %}

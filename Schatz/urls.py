@@ -27,4 +27,5 @@ urlpatterns = [
     path('pybo/', include('pybo.urls'), name='pybo'),
     path('common/', include('common.urls')),
     path('index/', base_views.index, name='index'),  # '/' 에 해당되는 path
+    path('fest/', include('festival.urls'), name='fest'),
 ]
