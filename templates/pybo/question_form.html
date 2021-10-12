@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
-{% load pybo_filter %}
-{% load bootstrap4 %}
+
 {% block content %}
 <div class="container">
     <h5 class="my-3 border-bottom pb-2">질문등록</h5>
@@ -28,7 +27,9 @@
             <textarea class="form-control" name="content"
                       id="content" rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
-        <button type="submit" class="btn btn-outline-primary">저장하기</button>
+    <div class="d-grid gap-2">
+        <a href="{% url 'pybo:question_create' %}" class="my-3 btn btn-outline-secondary" type="button">저장하기</a>
+    </div>
     </form>
 </div>
 {% endblock %}

@@ -12,7 +12,9 @@
             <textarea class="form-control"name="content" id="content"
                       rows="3">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">저장하기</button>
+    <div class="d-grid gap-2">
+        <a href="{% url 'pybo:question_create' %}" class="my-3 btn btn-outline-secondary" type="button">저장하기</a>
+    </div>
     </form>
 </div>
 {% endblock %}
