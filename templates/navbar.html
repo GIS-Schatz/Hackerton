@@ -1,8 +1,13 @@
 {% load static %}
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+
 <!-- 네비게이션바 -->
-<nav style="text-align: center; " class="Home_logo hl Home_header_logo navbar navbar-expand-lg navbar-light bg-light border-bottom">
+<nav style="text-align: center;" class="Home_logo hl Home_header_logo navbar navbar-expand-lg navbar-light bg-light border-bottom">
     <span class="mx-3">
-        <a class="navbar-brand" href="{% url 'beer:index' %}">홈</a>
+        <a class="navbar-brand mx-25" href="{% url 'beer:index' %}">홈</a>
     </span>
     <span class="mx-3">
         <a class="navbar-brand" href="{% url 'beer:ver1' %}">맥주간 유사도 기반 추천</a>
@@ -15,7 +20,7 @@
     </span>
 
     <div>
-            <a class="navbar-brand" href="{% url 'pybo:index' %}">로그인 정보 :</a>
+            <a class="navbar-brand mx-7" href="{% url 'pybo:index' %}"></a>
     </div>
 
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
