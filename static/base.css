@@ -1,10 +1,15 @@
+.Home_logo {
+    text-align: center;
+    margin-top: 2rem;
+}
+
 .Home_header_logo{
-    margin: 2rem 0;
-    font-family: 'Otomanopee One', sans-serif;
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 .Home_header_button{
     margin-bottom: 2rem;
+    font-family: 'Nanum Myeongjo', serif;
 
 }
 
@@ -13,7 +18,8 @@
 }
 
 .Home_footer_button{
-    margin: 1.5rem 0; font-family: 'Otomanopee One', sans-serif;
+    margin: 1.5rem 0;
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 .mw-500{
@@ -91,6 +97,9 @@ a:hover{
 .hl{
     text-decoration: none;
 }
+
+
+
 
 
 
