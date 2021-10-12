@@ -11,7 +11,7 @@
                       rows="10">{{ form.content.value|default_if_none:'' }}</textarea>
         </div>
     <div class="d-grid gap-2">
-        <a href="{% url 'pybo:question_create' %}" class="btn btn-outline-secondary" type="button">저장하기</a>
+        <button class="btn btn-outline-secondary" type="submit">저장하기</button>
     </div>
     </form>
 </div>
