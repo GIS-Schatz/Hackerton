@@ -9,7 +9,7 @@ from sklearn.metrics import mean_squared_error
 
 # 우리가 예측한 평점과 실제 평점간의 차이를 MSE로 계산
 def get_mse(pred, actual):
-    # 평점이 있는 실제 영화만 추출
+    # 평점이 있는 실제 맥주이름 추출
     pred = pred[actual.nonzero()].flatten()
     actual = actual[actual.nonzero()].flatten()
     return mean_squared_error(pred, actual)
@@ -101,7 +101,7 @@ def ver1(request):
     ratings = pd.read_csv('data/정제된데이터.csv', encoding='utf-8', index_col=0)
     cluster_3 = pd.read_csv('data/대표군집클러스터링.csv', encoding='utf-8', index_col=0)
     cluster_all = pd.read_csv('data/전체맥주클러스터링.csv', encoding='utf-8', index_col=0)
-    beer_data = pd.read_csv('data/맥주_cbf_data.csv', encoding='utf-8', index_col=0)
+    beer_data = pd.read_csv('data/맥주정보데이터.csv', encoding='utf-8', index_col=0)
     beer_list = beer_list['맥주이름']
     cluster_3 = cluster_3.values
 
@@ -176,7 +176,7 @@ def ver2(request):
     ratings = pd.read_csv('data/정제된데이터.csv', encoding='utf-8', index_col=0)
     cluster_3 = pd.read_csv('data/대표군집클러스터링.csv', encoding='utf-8', index_col=0)
     cluster_all = pd.read_csv('data/전체맥주클러스터링.csv', encoding='utf-8', index_col=0)
-    beer_data = pd.read_csv('data/맥주_cbf_data.csv', encoding='utf-8', index_col=0)
+    beer_data = pd.read_csv('data/맥주정보데이터.csv', encoding='utf-8', index_col=0)
     beer_list = beer_list['맥주이름']
     cluster_3 = cluster_3.values
 

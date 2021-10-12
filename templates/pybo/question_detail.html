@@ -24,12 +24,12 @@
                     <div class="card-text">{{ question.content|mark }}</div>
                     <div class="d-flex justify-content-end">
                         {% if question.modify_date %}
-                        <div class="badge badge-light p-2 text-left mx-3">
+                        <div class="badge bg-light text-dark p-2 text-left mx-3">
                             <div class="mb-2">modified at</div>
                             <div>{{ question.modify_date }}</div>
                         </div>
                         {% endif %}
-                        <div class="badge badge-light p-2 text-left">
+                        <div class="badge bg-light text-dark p-2 text-left">
                             <div class="mb-2">{{ question.author.username }}</div>
                             <div>{{ question.create_date }}</div>
                         </div>
@@ -64,9 +64,10 @@
                     {% endfor %}
                     </div>
                     {% endif %}
+                <hr>
                     <div>
                         <a href="{% url 'pybo:comment_create_question' question.id  %}"
-                           class="small"><small>댓글 추가 ..</small></a>
+                           class="small" style="text-decoration: none; color: black;"><small>댓글 추가 </small></a>
                     </div>
                     <!-- 질문 댓글 End -->
                 </div>
@@ -129,7 +130,7 @@
                     {% endif %}
                     <div>
                         <a href="{% url 'pybo:comment_create_answer' answer.id  %}"
-                           class="small"><small>댓글 추가 ..</small></a>
+                           class="small" style="text-decoration: none; color: black;"><small>댓글 추가 ..</small></a>
                     </div>
                 </div>
             </div>
@@ -152,7 +153,9 @@
             <textarea {% if not user.is_authenticated %}disabled{% endif %}
               name="content" id="content" class="form-control" rows="10"></textarea>
         </div>
-        <input type="submit" value="답변등록" class="btn btn-primary">
+    <div class="d-grid gap-2 my-3">
+        <input type="submit" value="답변등록" class="btn btn-outline-secondary">
+    </div>
     </form>
 </div>
 {% endblock %}

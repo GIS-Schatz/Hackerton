@@ -1,29 +1,38 @@
 {% load static %}
+{% load bootstrap4 %}
+{% load pybo_filter %}
 <!doctype html>
+
 <html lang="ko">
 
-{% include "head.html" %}
+    {% include "head.html" %}
 
-{% include "header.html" %}
-<body>
-<!-- 최상단 로고+navbar -->
+    <!-- 최상단 로고 -->
+    {% include "header.html" %}
 
-{% include "navbar.html" %}
-<!-- 기본 템플릿 안에 삽입될 내용 Start -->
-{% block content %}
-{% endblock %}
-<!-- 기본 템플릿 안에 삽입될 내용 End -->
-<!-- jQuery JS -->
-<script src="{% static 'jquery-3.4.1.min.js' %}"></script>
-<!-- Bootstrap JS -->
-<script src="{% static 'bootstrap.min.js' %}"></script>
-<!-- 자바스크립트 Start -->
-{% block script %}
-{% endblock %}
-<!-- 자바스크립트 End -->
-<hr>
+    <body>
+    <!-- navbar -->
+    {% include "navbar.html" %}
 
-{% include "footer.html" %}
-</body>
+    <!-- 기본 템플릿 안에 삽입될 내용 Start -->
+    {% block content %}
+    {% endblock %}
+    <!-- 기본 템플릿 안에 삽입될 내용 End -->
+
+    <!-- jQuery JS -->
+    <script src="{% static 'jquery-3.4.1.min.js' %}"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="{% static 'bootstrap.min.js' %}"></script>
+
+    <!-- 자바스크립트 Start -->
+    {% block script %}
+    {% endblock %}
+    <!-- 자바스크립트 End -->
+
+    <hr class="my-5">
+    {% include "footer.html" %}
+
+    </body>
 </html>
 
