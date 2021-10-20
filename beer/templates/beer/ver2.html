@@ -50,29 +50,30 @@
 {% block content %}
     <body>
 
-        <div style="background-color:#212F3D;">
-            <h2 style="color: white; text-align: center; margin-bottom: 20px">좋아하는 맥주와 평점을 선택해주세요.</h2>
-        </div>
-
         {#<div style="text-align:center;">#}
         {#    아이디 : <input type="text" name="name" text-align="center"><br><br>#}
         {#</div>#}
 
-        <div style="text-align: center">
+        <div style="float: left; margin-left: 10%; margin-top: 50px " >
             <img src="static/img/beer14.jpg" alt="추천맥주">
         </div>
 
+        <div style=" float: right; margin-right: 10%; margin-top: 50px">
+        <div style="background-color:#212F3D; border-radius: 4em; margin-top: 30px; width: 40%; text-align: center; margin-left: 30%">
+            <h2 style="color: white; text-align: center; margin-bottom: 20px;">맥주</h2>
+        </div>
         <div id="user">
-            <div style="text-align:center; margin:10px;">
+{#            <div style="float:right; margin:10px;">#}
             <form method="POST">
                 {% csrf_token %}
-                <div style="float: left; margin:5px;">
+                <div style=" margin:5px;">
                 맥주 :
                 <select name="beer1">
                     {% for tmp in beer_list %}
                         <option value='{{tmp}}'>{{tmp}}</option>
                     {% endfor %}
                 </select><br>
+
                 평점 :
                 <select name="rating1">
                     <option value=1>1</option>
@@ -83,7 +84,7 @@
                 </select><br><br>
                 </div>
 
-                <div style="float: left; margin:5px;">
+                <div style=" margin:5px;">
                 맥주 :
                 <select name="beer2">
                     {% for tmp in beer_list %}
@@ -100,7 +101,7 @@
                 </select><br><br>
                 </div>
 
-                <div style="float: left; margin:5px;">
+                <div style="margin:5px;">
                 맥주 :
                 <select name="beer3">
                     {% for tmp in beer_list %}
@@ -117,43 +118,43 @@
                 </select><br><br>
                 </div>
 
-                <div style="float:left; margin:5px;">
-                맥주 :
-                <select name="beer4">
-                    {% for tmp in beer_list %}
-                        <option value='{{tmp}}'>{{tmp}}</option>
-                    {% endfor %}
-                </select><br>
-                평점 :
-                <select name="rating4">
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3 selected>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                </select><br><br>
+                <div style="margin:5px;">
+{#                맥주 :#}
+{#                <select name="beer4">#}
+{#                    {% for tmp in beer_list %}#}
+{#                        <option value='{{tmp}}'>{{tmp}}</option>#}
+{#                    {% endfor %}#}
+{#                </select><br>#}
+{#                평점 :#}
+{#                <select name="rating4">#}
+{#                    <option value=1>1</option>#}
+{#                    <option value=2>2</option>#}
+{#                    <option value=3 selected>3</option>#}
+{#                    <option value=4>4</option>#}
+{#                    <option value=5>5</option>#}
+{#                </select><br><br>#}
+{#                </div>#}
+{##}
+{#                <div style="margin:5px;">#}
+{#                맥주 :#}
+{#                <select name="beer5">#}
+{#                    {% for tmp in beer_list %}#}
+{#                        <option value='{{tmp}}'>{{tmp}}</option>#}
+{#                    {% endfor %}#}
+{#                </select><br>#}
+{#                평점 :#}
+{#                <select name="rating5">#}
+{#                    <option value=1>1</option>#}
+{#                    <option value=2>2</option>#}
+{#                    <option value=3 selected>3</option>#}
+{#                    <option value=4>4</option>#}
+{#                    <option value=5>5</option>#}
+{#                </select>#}
                 </div>
-
-                <div style="float:left; margin:5px;">
-                맥주 :
-                <select name="beer5">
-                    {% for tmp in beer_list %}
-                        <option value='{{tmp}}'>{{tmp}}</option>
-                    {% endfor %}
-                </select><br>
-                평점 :
-                <select name="rating5">
-                    <option value=1>1</option>
-                    <option value=2>2</option>
-                    <option value=3 selected>3</option>
-                    <option value=4>4</option>
-                    <option value=5>5</option>
-                </select>
-                </div>
-                    <br><br><br>
+                    <br>
                 <input class="btn btn-success rounded-pill" type="submit" value="Pick!" style="margin-right: 10rem;">
             </form>
-            </div>
+        </div>
         </div>
         </div>
     </body>
