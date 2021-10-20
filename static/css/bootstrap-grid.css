@@ -27,6 +27,10 @@ html {
   margin-right: auto;
   margin-left: auto;
 }
+.container1{
+  width: 100%;
+  text-align: center;
+}
 
 @media (min-width: 576px) {
   .container, .container-sm {

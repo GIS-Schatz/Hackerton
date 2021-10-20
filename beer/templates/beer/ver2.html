@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
 {% load static %}
-{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,13 +41,13 @@
             #user {
             }
             body{
-                background-image:url("{% static 'img/맥주배경.jpg' %}");
+                background-image:url("{% static '../../../static/img/맥주배경.jpg' %}");
                 background-size:100% 200%;
             }
         </style>
     </head>
 
-
+{% block content %}
     <body>
 
         <div style="background-color:#212F3D;">
@@ -151,7 +151,7 @@
                 </select>
                 </div>
                     <br><br><br>
-                <input class="btn btn-success" type="submit" value="Pick!">
+                <input class="btn btn-success rounded-pill" type="submit" value="Pick!" style="margin-right: 10rem;">
             </form>
             </div>
         </div>

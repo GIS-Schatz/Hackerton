@@ -22,6 +22,11 @@
     font-family: 'Nanum Myeongjo', serif;
 }
 
+.Home_footer_button_gugi{
+    margin: 1.5rem 0;
+    font-family: 'Gugi', cursive;
+}
+
 .mw-500{
     max-width: 500px;
     margin: 1rem 1.5rem;
@@ -103,11 +108,58 @@ a:hover{
 }
 
 
+.span1{
+    background-color: #212F3D;
+
+}
+
+.d_inline{
+    background-color: #212F3D;
+    display: inline;
+}
+.b_inline{
+    display: inline-flex;
+}
+.db_inline{
+    display: block;
+}
+.login_wrapper{
+    display: flex;
+    height: 100vh;
+    justify-content: center; /*가로에서 가운데에 요소(자식요소)를 배치하겠다*/
+    align-items: center; /* 세로에서 가운데에 요소를 배치하겠다 */
+    /*border: solid 1px gray;*/
+}
 
 
+.custom-shape-divider-top-1634640017 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
 
+.custom-shape-divider-top-1634640017 svg {
+    position: relative;
+    display: block;
+    width: calc(123% + 1.3px);
+    height: 388px;
+}
 
+.custom-shape-divider-top-1634640017 .shape-fill {
+    fill: #E9DD5A;
+}
 
+div.relative {
+  position: relative;
+}
 
+.gugi{
+    font-family: 'Gugi', cursive;
+}
 
-
+body{
+    background-size: cover;
+}

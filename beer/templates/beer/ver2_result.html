@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
 {% load static %}
-{% block content %}
+
 
 <!DOCTYPE html>
 <html lang="en">
-
+{% block content %}
 
     <head>
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
@@ -24,21 +24,45 @@
                 background-color:lightgrey;
                 height:100px;
             }
+
+          {#body{ background-color: #F7FFF5;}#}
+          {#p { width: 600px; }#}
+          {#/* 본문 내 이미지 요소의 'position' 속성을 'absolute'로 지정 */#}
+          {#img.absolute {#}
+          {#  position: absolute;#}
+          {#  left: 700px;#}
+          {#  top: 50px;#}
+          {#}#}
+        </style>
+
+
+
         </style>
     </head>
 
     <body>
 
-        <div style="background-color:#212F3D;">
-            <h2 style="color: white; text-align: center; margin-bottom: 20px">첫 번째 추천 맥주는 {{ result.0 }} 입니다.</h2>
-        </div>
-            <img src="/static/beer_img/{{ result.0 }}.jpg" alt="사진은 수집중입니다😢">
 
-        <h2>추천 맥주 유형 </h2>
-        <h3>{{ category.0 }}</h3>
-        <h2>어울리는 요리</h2>
-        <h3>{{ food.0 }}</h3>
+        <div>
+        {#        <div style="background-color:#212F3D;">#}
+            <h2 style="color: white; text-align: center; margin-bottom: 20px"><span class="span1">첫 번째 추천 맥주는 {{ result.0 }} 입니다.</span></h2>
+        </div>
+
+    <div>
+
+        <img src="/static/beer_img/{{ result.0 }}.jpg" alt="사진은 수집중입니다😢">
+
+
+        <div>
+            <h2>추천 맥주 유형 </h2>
+            <h3>{{ category.0 }}</h3>
+            <h2>어울리는 요리</h2>
+            <h3>{{ food.0 }}</h3>
+        </div>
+    </div>
+
         <div id='myDiv'></div>
+
         <script>
             var data = JSON.parse("{{ targetJson|escapejs }}")
 
@@ -120,8 +144,9 @@
         </script>
 
 
-        <div style="background-color:#212F3D;">
-            <h2 style="color: white; text-align: center; margin-bottom: 20px">두 번째 추천 맥주는 {{ result.1 }} 입니다.</h2>
+{#        <div style="background-color:#212F3D;">#}
+        <div>
+            <h2 style="color: white; text-align: center; margin-bottom: 20px"><span class="d_inline">두 번째 추천 맥주는 {{ result.1 }} 입니다</span>.</h2>
         </div>
             <img src="static/beer_img/{{ result.1 }}.jpg" alt="사진은 수집중입니다😢">
 
@@ -210,8 +235,9 @@
             Plotly.newPlot('line2', result, layout);
         </script>
 
-        <div style="background-color:#212F3D;">
-            <h2 style="color: white; text-align: center; margin-bottom: 20px">세 번째 추천 맥주는 {{ result.2 }} 입니다.</h2>
+{#        <div style="background-color:#212F3D;">#}
+        <div>
+            <h2 style="color: white; text-align: center; margin-bottom: 20px"><span class="span1">세 번째 추천 맥주는 {{ result.2 }} 입니다.</span></h2>
         </div>
             <img src="static/beer_img/{{ result.2 }}.jpg" alt="사진은 수집중입니다😢">
 
