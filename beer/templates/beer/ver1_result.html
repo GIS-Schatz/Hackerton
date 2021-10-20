@@ -10,6 +10,8 @@
     <head>
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
     <!--    <link rel= "stylesheet" type="text/css" href="{% static 'css/ver1_result.css' %}">-->
+{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>#}
+{#        <canvas id="radar-chart" width="250" height="250"></canvas>#}
 
         <meta charset="UTF-8">
 
@@ -237,19 +239,19 @@
               },
               {
               type: 'scatterpolar',
-              r: data['cluster1'],
-              theta: ['Aroma', 'Appearance', 'Flavor','Mouthfeel', 'Overall'],
-              fill: 'toself',
-              name: 'Sad',
-              marker : { color : 'skyblue'}
-              },
-              {
-              type: 'scatterpolar',
               r: data['cluster2'],
               theta: ['Aroma', 'Appearance', 'Flavor','Mouthfeel', 'Overall'],
               fill: 'toself',
               name: 'SoSo',
               marker : { color : 'blue'}
+              },
+              {
+              type: 'scatterpolar',
+              r: data['cluster1'],
+              theta: ['Aroma', 'Appearance', 'Flavor','Mouthfeel', 'Overall'],
+              fill: 'toself',
+              name: 'Sad',
+              marker : { color : 'skyblue'}
               },
               {
               type: 'scatterpolar',
