@@ -61,7 +61,7 @@
                     좋아하는 맥주와 취향을 선택하여
                 </h2>
                 <h2 style="color: black; text-align: center;">
-                    AI가 추천해주는 맥주를 즐겨보아요
+                    AI가 추천해주는 맥주를 즐겨보세요!
                 </h2>
                 <div style="text-align: center; margin-top: 90px" >
                     <form method="POST">
@@ -70,20 +70,21 @@
 
                         {#아이디 :#}
                         {#<input type="text" name="name"><br><br>#}
-
+                    <div style="border: 1px solid gold; padding: 5px;">
                         <h3> 맥주 고르기</h3>
                         <select name="beer">
                             {% for tmp in beer_list %}
                                 <option value='{{tmp}}'>{{tmp}}</option>
                             {% endfor %}
                         </select><br><br>
-                        <h3> 취향 </h3>
-                        <select name="detail">
+                        <h3> 중요하게 생각하는 요소는 무엇인가요? </h3>
+                        <select name="detail", style="text-align: left;">
                             <option value="Flavor">맛</option>
                             <option value="Aroma">향</option>
                             <option value="Mouthfeel">목넘김</option>
                         </select><br><br>
-                        <input class="btn btn-secondary" type="submit" value="Pick!">
+                        <input class="btn btn-secondary" type="submit" value="선택하고 결과보기">
+                    </div>
                     </form>
                 </div>
             </div>
