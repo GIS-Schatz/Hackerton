@@ -46,16 +46,24 @@
 
     {% block content %}
     <body>
-        <div style="background-color:#212F3D;">
-                <h2 style="color: white; text-align: center; margin-bottom: 20px">좋아하는 맥주와 취향을 선택해주세요.</h2>
-        </div>
-
-            <div id = 'contents' style="text-align:center;">
-
-                        <img id="img1" src="static/img/beer19.jpg">
-
-
-                <div>
+{#        <div style="background-color:#212F3D;">#}
+{#                <h2 style="color: white; text-align: center; margin-bottom: 20px">좋아하는 맥주와 취향을 선택해주세요.</h2>#}
+{#        </div>#}
+{##}
+{#            <div id = 'contents' style="text-align:center;">#}
+{##}
+{#                        <img id="img1" src="static/img/beer19.jpg">#}
+{##}
+{##}
+{#                <div>#}
+        <div style=" float: right; margin-right: 15%; margin-top: 10%">
+                <h2 style="color: black; text-align: center;">
+                    좋아하는 맥주와 취향을 선택하여
+                </h2>
+                <h2 style="color: black; text-align: center;">
+                    AI가 추천해주는 맥주를 즐겨보아요
+                </h2>
+                <div style="text-align: center; margin-top: 90px" >
                     <form method="POST">
                         <br>
                         {% csrf_token %}
@@ -63,22 +71,27 @@
                         {#아이디 :#}
                         {#<input type="text" name="name"><br><br>#}
 
-                        맥주 :
+                        <h3> 맥주 고르기</h3>
                         <select name="beer">
                             {% for tmp in beer_list %}
                                 <option value='{{tmp}}'>{{tmp}}</option>
                             {% endfor %}
                         </select><br><br>
-                        취향 :
+                        <h3> 취향 </h3>
                         <select name="detail">
                             <option value="Flavor">맛</option>
                             <option value="Aroma">향</option>
                             <option value="Mouthfeel">목넘김</option>
                         </select><br><br>
-                        <input class="btn btn-success rounded-pill" type="submit" value="Pick!">
+                        <input class="btn btn-secondary" type="submit" value="Pick!">
                     </form>
                 </div>
             </div>
+
+                <div style=" margin-left: 20%; margin-top: 80px " id = 'content'>
+
+                        <img id="img1" src="static/img/beer19.jpg">
+                </div>
     </body>
 </html>
 {% endblock %}
