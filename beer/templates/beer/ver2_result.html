@@ -120,28 +120,29 @@
 
         Plotly.newPlot("myDiv", data, layout)
         </script>
-        <div id='line1'></div>
-        <script>
-            var data = JSON.parse("{{ targetJson|escapejs }}")
 
-            var trace1 = {
-              x: data['tmp_year'][0],
-              y: data['tmp_ratings'][0],
-              type: 'scatter'
-            }
-
-            var result = [trace1];
-            layout = {
-              title: {
-                text:'추천 맥주의 연도별 평점 트렌드',
-                font: {
-                  size: 24
-                },
-                x : 0.5
-              }
-            }
-            Plotly.newPlot('line1', result, layout);
-        </script>
+{#        <div id='line1'></div>#}
+{#        <script>#}
+{#            var data = JSON.parse("{{ targetJson|escapejs }}")#}
+{##}
+{#            var trace1 = {#}
+{#              x: data['tmp_year'][0],#}
+{#              y: data['tmp_ratings'][0],#}
+{#              type: 'scatter'#}
+{#            }#}
+{##}
+{#            var result = [trace1];#}
+{#            layout = {#}
+{#              title: {#}
+{#                text:'추천 맥주의 연도별 평점 트렌드',#}
+{#                font: {#}
+{#                  size: 24#}
+{#                },#}
+{#                x : 0.5#}
+{#              }#}
+{#            }#}
+{#            Plotly.newPlot('line1', result, layout);#}
+{#        </script>#}
 
 
 {#        <div style="background-color:#212F3D;">#}
@@ -211,29 +212,29 @@
 
         Plotly.newPlot("myDiv2", data, layout)
         </script>
-        <div id='line2'></div>
-        <script>
-            var data = JSON.parse("{{ targetJson|escapejs }}")
-
-            var trace1 = {
-              x: data['tmp_year'][1],
-              y: data['tmp_ratings'][1],
-              type: 'scatter'
-            }
-
-            var result = [trace1];
-
-            layout = {
-              title: {
-                text:'추천 맥주의 연도별 평점 트렌드',
-                font: {
-                  size: 24
-                },
-                x : 0.5
-              }
-            }
-            Plotly.newPlot('line2', result, layout);
-        </script>
+{#        <div id='line2'></div>#}
+{#        <script>#}
+{#            var data = JSON.parse("{{ targetJson|escapejs }}")#}
+{##}
+{#            var trace1 = {#}
+{#              x: data['tmp_year'][1],#}
+{#              y: data['tmp_ratings'][1],#}
+{#              type: 'scatter'#}
+{#            }#}
+{##}
+{#            var result = [trace1];#}
+{##}
+{#            layout = {#}
+{#              title: {#}
+{#                text:'추천 맥주의 연도별 평점 트렌드',#}
+{#                font: {#}
+{#                  size: 24#}
+{#                },#}
+{#                x : 0.5#}
+{#              }#}
+{#            }#}
+{#            Plotly.newPlot('line2', result, layout);#}
+{#        </script>#}
 
 {#        <div style="background-color:#212F3D;">#}
         <div>
@@ -302,29 +303,30 @@
 
         Plotly.newPlot("myDiv3", data, layout)
         </script>
-        <div id='line3'></div>
-        <script>
-            var data = JSON.parse("{{ targetJson|escapejs }}")
 
-            var trace1 = {
-              x: data['tmp_year'][2],
-              y: data['tmp_ratings'][2],
-              type: 'scatter'
-            }
-
-            var result = [trace1];
-
-            layout = {
-              title: {
-                text:'추천 맥주의 연도별 평점 트렌드',
-                font: {
-                  size: 24
-                },
-                x : 0.5
-              }
-            }
-            Plotly.newPlot('line3', result, layout);
-        </script>
+{#        <div id='line3'></div>#}
+{#        <script>#}
+{#            var data = JSON.parse("{{ targetJson|escapejs }}")#}
+{##}
+{#            var trace1 = {#}
+{#              x: data['tmp_year'][2],#}
+{#              y: data['tmp_ratings'][2],#}
+{#              type: 'scatter'#}
+{#            }#}
+{##}
+{#            var result = [trace1];#}
+{##}
+{#            layout = {#}
+{#              title: {#}
+{#                text:'추천 맥주의 연도별 평점 트렌드',#}
+{#                font: {#}
+{#                  size: 24#}
+{#                },#}
+{#                x : 0.5#}
+{#              }#}
+{#            }#}
+{#            Plotly.newPlot('line3', result, layout);#}
+{#        </script>#}
     </body>
 </html>
     {% endblock %}
