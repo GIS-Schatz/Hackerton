@@ -4,34 +4,24 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <style>
-        button:hover   {
-            color: dimgray;
-            background-color: gray;
-        }
-    </style>
-</head>
-
-
 <!-- 네비게이션바 -->
-<nav style="text-align: center; margin-top: 50px" class=" hl gugi navbar navbar-expand-lg navbar-light bg-light border-bottom" >
-<nav style="text-align: center;" class=" hl gugi navbar navbar-expand-lg navbar-light bg-light1 border-bottom">
+<nav style="text-align: center;" class=" hl gugi navbar navbar-expand-lg navbar-light bg-light border-bottom">
+{#<nav style="text-align: center;" class=" hl gugi navbar navbar-expand-lg navbar-light bg-light1 border-bottom">#}
     <span class="mx-3">
         <a class="navbar-brand mx-25" href="{% url 'beer:index' %}"><span class="material-icons">home</span></a>
     </span>
-    <span class="mx-5">
-        <a class="navbar-brand" href="{% url 'beer:ver1' %};"><button style=" border:none; color:black; padding: 10px; ">맥주간 유사도 기반 추천</button></a>
+    <span class="mx-3">
+        <a class="navbar-brand" href="{% url 'beer:ver1' %}"><button class="rounded-pill" style="padding: 0.5rem;">맥주간 유사도 기반 추천</button></a>
     </span>
-    <span class="mx-5">
-        <a class="navbar-brand" href="{% url 'beer:ver2' %}"><button style="border: none; color:black; padding: 5px; ">내 평점이 반영된 맥주 추천</button></a>
+    <span class="mx-3">
+        <a class="navbar-brand" href="{% url 'beer:ver2' %}"><button class="rounded-pill" style="padding: 0.5rem;">내 평점이 반영된 맥주 추천</button></a>
     </span>
-    <span class="mx-5">
-        <a class="navbar-brand" href="{% url 'pybo:index' %}"><button style="border: none; color: black; padding: 5px; ">게시판</button></a>
+    <span class="mx-3">
+        <a class="navbar-brand" href="{% url 'pybo:index' %}"><button class="rounded-pill" style="padding: 0.5rem;">게시판</button></a>
     </span>
 
     <div>
-        <a class="navbar-brand" style="margin-right: 10rem;margin-left: 10%" href="{% url 'pybo:index' %}"></a>
+        <a class="navbar-brand" style="margin-right: 10rem;" href="{% url 'pybo:index' %}"></a>
     </div>
 
     <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -57,5 +47,4 @@
             </li>
         </ul>
     </div>
-</nav>
 </nav>

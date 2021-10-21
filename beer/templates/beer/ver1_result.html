@@ -10,6 +10,8 @@
     <head>
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
     <!--    <link rel= "stylesheet" type="text/css" href="{% static 'css/ver1_result.css' %}">-->
+{#        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>#}
+{#        <canvas id="radar-chart" width="250" height="250"></canvas>#}
 
         <meta charset="UTF-8">
 
@@ -33,7 +35,7 @@
         </div>
 
         <img src="static/beer_img/{{ result.0 }}.jpg" alt="사진은 수집중입니다😢">
-        <h2>추천 맥주 유형 </h2>
+        <h2> 추천 맥주 유형 </h2>
         <h3>{{ category.0 }}</h3>
         <h2>어울리는 요리</h2>
         <h3>{{ food.0 }}</h3>
@@ -94,29 +96,29 @@
         Plotly.newPlot("myDiv", data, layout)
         </script>
 
-        <div id='line1'></div>
-        <script>
-            var data = JSON.parse("{{ targetJson|escapejs }}")
-
-            var trace1 = {
-              x: data['tmp_year'][0],
-              y: data['tmp_ratings'][0],
-              type: 'scatter'
-            }
-
-            var result = [trace1];
-
-            layout = {
-              title: {
-                text:'추천 맥주의 연도별 평점 트렌드',
-                font: {
-                  size: 24
-                },
-                x : 0.5
-              }
-            }
-            Plotly.newPlot('line1', result, layout);
-        </script>
+{#        <div id='line1'></div>#}
+{#        <script>#}
+{#            var data = JSON.parse("{{ targetJson|escapejs }}")#}
+{##}
+{#            var trace1 = {#}
+{#              x: data['tmp_year'][0],#}
+{#              y: data['tmp_ratings'][0],#}
+{#              type: 'scatter'#}
+{#            }#}
+{##}
+{#            var result = [trace1];#}
+{##}
+{#            layout = {#}
+{#              title: {#}
+{#                text:'추천 맥주의 연도별 평점 트렌드',#}
+{#                font: {#}
+{#                  size: 24#}
+{#                },#}
+{#                x : 0.5#}
+{#              }#}
+{#            }#}
+{#            Plotly.newPlot('line1', result, layout);#}
+{#        </script>#}
 
         <div style="background-color:#212F3D;">
             <h2 style="color: white; text-align: center; margin-bottom: 20px">두 번째 추천 맥주는 {{ result.1 }} 입니다.</h2>
@@ -187,28 +189,28 @@
         </script>
 
         <div id='line2'></div>
-        <script>
-            var data = JSON.parse("{{ targetJson|escapejs }}")
-
-            var trace1 = {
-              x: data['tmp_year'][1],
-              y: data['tmp_ratings'][1],
-              type: 'scatter'
-            }
-
-            var result = [trace1];
-
-            layout = {
-                title: {
-                text:'추천 맥주의 연도별 평점 트렌드',
-                font: {
-                  size: 24
-                },
-                x : 0.5
-                }
-            }
-            Plotly.newPlot('line2', result, layout);
-        </script>
+{#        <script>#}
+{#            var data = JSON.parse("{{ targetJson|escapejs }}")#}
+{##}
+{#            var trace1 = {#}
+{#              x: data['tmp_year'][1],#}
+{#              y: data['tmp_ratings'][1],#}
+{#              type: 'scatter'#}
+{#            }#}
+{##}
+{#            var result = [trace1];#}
+{##}
+{#            layout = {#}
+{#                title: {#}
+{#                text:'추천 맥주의 연도별 평점 트렌드',#}
+{#                font: {#}
+{#                  size: 24#}
+{#                },#}
+{#                x : 0.5#}
+{#                }#}
+{#            }#}
+{#            Plotly.newPlot('line2', result, layout);#}
+{#        </script>#}
 
 
         <div style="background-color:#212F3D;">
@@ -218,7 +220,7 @@
 
             <img src="static/beer_img/{{ result.2 }}.jpg" alt="사진은 수집중입니다😢">
 
-        <h2>추천 맥주 유형 </h2>
+        <h2> 추천 맥주 유형 </h2>
         <h3>{{ category.2 }}</h3>
         <h2>어울리는 요리</h2>
         <h3>{{ food.2 }}</h3>
@@ -237,19 +239,19 @@
               },
               {
               type: 'scatterpolar',
-              r: data['cluster1'],
-              theta: ['Aroma', 'Appearance', 'Flavor','Mouthfeel', 'Overall'],
-              fill: 'toself',
-              name: 'Sad',
-              marker : { color : 'skyblue'}
-              },
-              {
-              type: 'scatterpolar',
               r: data['cluster2'],
               theta: ['Aroma', 'Appearance', 'Flavor','Mouthfeel', 'Overall'],
               fill: 'toself',
               name: 'SoSo',
               marker : { color : 'blue'}
+              },
+              {
+              type: 'scatterpolar',
+              r: data['cluster1'],
+              theta: ['Aroma', 'Appearance', 'Flavor','Mouthfeel', 'Overall'],
+              fill: 'toself',
+              name: 'Sad',
+              marker : { color : 'skyblue'}
               },
               {
               type: 'scatterpolar',
@@ -280,29 +282,29 @@
         Plotly.newPlot("myDiv3", data, layout)
         </script>
 
-        <div id='line3'></div>
-        <script>
-            var data = JSON.parse("{{ targetJson|escapejs }}")
-
-            var trace1 = {
-              x: data['tmp_year'][2],
-              y: data['tmp_ratings'][2],
-              type: 'scatter'
-            }
-
-            var result = [trace1];
-
-            layout = {
-              title: {
-                text:'추천 맥주의 연도별 평점 트렌드',
-                font: {
-                  size: 24
-                },
-                x : 0.5
-              }
-            }
-            Plotly.newPlot('line3', result, layout);
-        </script>
+{#        <div id='line3'></div>#}
+{#        <script>#}
+{#            var data = JSON.parse("{{ targetJson|escapejs }}")#}
+{##}
+{#            var trace1 = {#}
+{#              x: data['tmp_year'][2],#}
+{#              y: data['tmp_ratings'][2],#}
+{#              type: 'scatter'#}
+{#            }#}
+{##}
+{#            var result = [trace1];#}
+{##}
+{#            layout = {#}
+{#              title: {#}
+{#                text:'추천 맥주의 연도별 평점 트렌드',#}
+{#                font: {#}
+{#                  size: 24#}
+{#                },#}
+{#                x : 0.5#}
+{#              }#}
+{#            }#}
+{#            Plotly.newPlot('line3', result, layout);#}
+{#        </script>#}
 
     </body>
 </html>

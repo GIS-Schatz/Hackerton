@@ -138,6 +138,8 @@ def ver1(request):
             except:
                 category.append('수집되지 않았습니다.')
                 food.append('수집되지 않았습니다.')
+
+
         # 연도별 평점 결과
         tmp_year = []
         tmp_ratings = []
