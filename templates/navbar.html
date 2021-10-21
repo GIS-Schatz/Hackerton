@@ -3,6 +3,13 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <style>
+        a:hover{
+            background-color: black;
+        }
+    </style>
+</head>
 
 <!-- 네비게이션바 -->
 <nav style="text-align: center;" class=" hl gugi navbar navbar-expand-lg navbar-light bg-light border-bottom">
@@ -11,13 +18,13 @@
         <a class="navbar-brand mx-25" href="{% url 'beer:index' %}"><span class="material-icons">home</span></a>
     </span>
     <span class="mx-3">
-        <a class="navbar-brand" href="{% url 'beer:ver1' %}"><button class="rounded-pill" style="padding: 0.5rem;">맥주간 유사도 기반 추천</button></a>
+        <a class="navbar-brand" href="{% url 'beer:ver1' %}">맥주간 유사도 기반 추천</a>
     </span>
     <span class="mx-3">
-        <a class="navbar-brand" href="{% url 'beer:ver2' %}"><button class="rounded-pill" style="padding: 0.5rem;">내 평점이 반영된 맥주 추천</button></a>
+        <a class="navbar-brand" href="{% url 'beer:ver2' %}">내 평점이 반영된 맥주 추천</a>
     </span>
     <span class="mx-3">
-        <a class="navbar-brand" href="{% url 'pybo:index' %}"><button class="rounded-pill" style="padding: 0.5rem;">게시판</button></a>
+        <a class="navbar-brand" href="{% url 'pybo:index' %}">게시판</a>
     </span>
 
     <div>
