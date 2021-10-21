@@ -96,7 +96,7 @@ a{
 /*하트 위로 커서 올렸을 때 파란색으로 변하는거 수정*/
 
 a:hover{
-    color: black;
+    color: darkorange;
 }
 
 .hl{
@@ -163,3 +163,4 @@ div.relative {
 body{
     background-size: cover;
 }
+
