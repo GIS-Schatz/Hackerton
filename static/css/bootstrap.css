@@ -6421,8 +6421,9 @@ a.close.disabled {
   touch-action: pan-y;
 }
 
+/*position:relative*/
 .carousel-inner {
-  position: relative;
+  position: absolute;
   width: 100%;
   overflow: hidden;
 }
@@ -6533,12 +6534,13 @@ a.close.disabled {
   opacity: 0.9;
 }
 
+/*원래 오른쪽 왼쪽값 0 인데 10%로 변경해봄 위치변경확인용*/
 .carousel-control-prev {
-  left: 0;
+  left: 10%;
 }
 
 .carousel-control-next {
-  right: 0;
+  right: 10%;
 }
 
 .carousel-control-prev-icon,
@@ -6609,7 +6611,7 @@ a.close.disabled {
   z-index: 10;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: #fff;
+  color: black; !important;
   text-align: center;
 }
 
