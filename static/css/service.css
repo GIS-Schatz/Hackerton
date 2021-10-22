@@ -39,12 +39,12 @@ ul{
 }
 .prev{
     position:absolute;
-    top:60%;
+    top:50%;
     left:25%;
 }
 .next{
     position:absolute;
-    top:60%;
+    top:50%;
     right:25%;
 }
 .container ul{
