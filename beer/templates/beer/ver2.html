@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{#{% extends 'base.html' %}#}
 {% load bootstrap4 %}
 {% load static %}
 
@@ -49,10 +49,12 @@
 
 {% block content %}
     <body>
+    <a href="{% url 'beer:index' %}">
 
         <div style="background-color:#212F3D;">
             <h2 style="color: white; text-align: center; margin-bottom: 20px">좋아하는 맥주와 평점을 선택해주세요.</h2>
         </div>
+    </a>
 
         {#<div style="text-align:center;">#}
         {#    아이디 : <input type="text" name="name" text-align="center"><br><br>#}
@@ -157,5 +159,5 @@
         </div>
         </div>
     </body>
-</html>
+
 {% endblock %}
