@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{#{% extends 'base.html' %}#}
 {% load bootstrap4 %}
 {% load static %}
 
@@ -49,8 +49,10 @@
         </div>
 
     <div>
+        <a href="{% url 'beer:index' %}">
 
         <img src="/static/beer_img/{{ result.0 }}.jpg" alt="사진은 수집중입니다😢">
+        </a>
 
 
         <div>
