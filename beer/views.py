@@ -186,7 +186,7 @@ def ver2(request):
         name = request.POST.get('name', '')
         beer = []
         rating = []
-        for i in range(1,6):
+        for i in range(1,4):
             beer.append(request.POST.get('beer'+str(i), ''))
             rating.append((request.POST.get('rating'+str(i), '')))
 

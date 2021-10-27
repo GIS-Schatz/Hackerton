@@ -24,7 +24,8 @@
 
 .Home_footer_button_gugi{
     margin: 1.5rem 0;
-    font-family: 'Gugi', cursive;
+    /*font-family: 'Gugi', cursive;*/
+    font-family: 'Gowun Dodum', sans-serif;
 }
 
 .mw-500{
@@ -157,7 +158,8 @@ div.relative {
 }
 
 .gugi{
-    font-family: 'Gugi', cursive;
+    /*font-family: 'Gugi', cursive;*/
+    font-family: 'Gowun Dodum', sans-serif;
 }
 
 body{

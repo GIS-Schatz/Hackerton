@@ -31,13 +31,13 @@
 
 
         <div style="background-color:#212F3D;">
-            <h2 style="color: white; text-align: center; margin-bottom: 20px">첫 번째 추천 맥주는 {{ result.0 }} 입니다.</h2>
+            <h2 style="color: white; text-align: center; margin-bottom: 20px; padding: 10px;">첫 번째 추천 맥주는 {{ result.0 }} 입니다.</h2>
         </div>
 
         <img src="static/beer_img/{{ result.0 }}.jpg" alt="사진은 수집중입니다😢">
-        <h2> 추천 맥주 유형 </h2>
+        <h2 class="NNS_B" style="margin-top: 3rem;"> 추천 맥주 유형 </h2>
         <h3>{{ category.0 }}</h3>
-        <h2>어울리는 요리</h2>
+        <h2 class="NNS_B" style="margin-top: 3rem;">어울리는 요리</h2>
         <h3>{{ food.0 }}</h3>
         <div id='myDiv'></div>
         <script>
@@ -64,7 +64,7 @@
               r: data['cluster1'],
               theta: ['Aroma', 'Appearance', 'Flavor','Mouthfeel', 'Overall'],
               fill: 'toself',
-              name: 'Sad',
+              name: 'Bad',
               marker : { color : 'skyblue'}
               },
               {
@@ -121,14 +121,14 @@
 {#        </script>#}
 
         <div style="background-color:#212F3D;">
-            <h2 style="color: white; text-align: center; margin-bottom: 20px">두 번째 추천 맥주는 {{ result.1 }} 입니다.</h2>
+            <h2 style="color: white; text-align: center; margin-bottom: 20px; padding: 10px;">두 번째 추천 맥주는 {{ result.1 }} 입니다.</h2>
         </div>
 
             <img src="static/beer_img/{{ result.1 }}.jpg" alt="사진은 수집중입니다😢">
 
-        <h2> 추천 맥주 유형 </h2>
+        <h2 class="NNS_B" style="margin-top: 3rem;"> 추천 맥주 유형</h2>
         <h3>{{ category.1 }}</h3>
-        <h2>어울리는 요리</h2>
+        <h2 class="NNS_B" style="margin-top: 3rem;">어울리는 요리</h2>
         <h3>{{ food.1 }}</h3>
         <div id='myDiv2'></div>
         <script>
@@ -156,7 +156,7 @@
               r: data['cluster1'],
               theta: ['Aroma', 'Appearance', 'Flavor','Mouthfeel', 'Overall'],
               fill: 'toself',
-              name: 'Sad',
+              name: 'Bad',
               marker : { color : 'skyblue'}
               },
               {
@@ -214,15 +214,15 @@
 
 
         <div style="background-color:#212F3D;">
-            <h2 style="color: white; text-align: center; margin-bottom: 20px">세 번째 추천 맥주는 {{ result.2 }} 입니다.</h2>
+            <h2 style="color: white; text-align: center; margin-bottom: 20px; padding: 10px;">세 번째 추천 맥주는 {{ result.2 }} 입니다.</h2>
 
         </div>
 
             <img src="static/beer_img/{{ result.2 }}.jpg" alt="사진은 수집중입니다😢">
 
-        <h2> 추천 맥주 유형 </h2>
+        <h2 class="NNS_B" style="margin-top: 3rem;"> 추천 맥주 유형 </h2>
         <h3>{{ category.2 }}</h3>
-        <h2>어울리는 요리</h2>
+        <h2 class="NNS_B" style="margin-top: 3rem;">어울리는 요리</h2>
         <h3>{{ food.2 }}</h3>
         <div id='myDiv3'></div>
         <script>
@@ -250,7 +250,7 @@
               r: data['cluster1'],
               theta: ['Aroma', 'Appearance', 'Flavor','Mouthfeel', 'Overall'],
               fill: 'toself',
-              name: 'Sad',
+              name: 'Bad',
               marker : { color : 'skyblue'}
               },
               {
